@@ -5,11 +5,8 @@ var bodyParser = require('body-parser')
 
 console.log("Hello World");
 
-app.use('/', function (req, res, next) {
-    console.log(req.method + " " + req.path + " - " + req.ip);
-    bodyParser.urlencoded({extended: false})
-    next();
-})
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/views/index.html')
