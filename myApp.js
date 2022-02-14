@@ -9,7 +9,10 @@ app.get('/', function (req, res) {
 
 app.use('/public', express.static(__dirname + '/public'))
 
-
+json = {"message": "Hello json"}
+app.get('/json', function (req, res) {
+    res.json(json)
+})
 
 
 
